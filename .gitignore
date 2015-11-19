@@ -1,0 +1,20 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/ActorInterfaces/bin/Debug
+/ActorInterfaces/obj/Debug
+/Actors/bin/Debug
+/Actors/obj/Debug
+/Orleans.Fabric.Client/bin/Debug
+/Orleans.Fabric.Client/obj/x64/Debug
+/Orleans.Fabric.Common/obj/x64/Debug
+/Orleans.Fabric.Common/bin/Debug
+/Orleans.Fabric.Silo/bin/Debug
+/OrleansFabricSiloApplication/obj/x64/Debug
+/Orleans.Fabric.Silo/obj/x64/Debug
+/OrleansFabricSiloApplication_
+/packages
+/TestClient/bin/Debug
+/TestClient/obj/Debug
+*.suo
