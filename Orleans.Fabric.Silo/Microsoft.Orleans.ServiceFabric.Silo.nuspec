@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Microsoft.Orleans.ServiceFabric.Silo</id>
+    <title>Microsoft Orleans Service Fabric Silo</title>
+    <version>1.1.0-beta2</version>
+    <authors>Reuben Bond</authors>
+    <owners>Microsoft,Orleans</owners>
+    <projectUrl>https://github.com/dotnet/Orleans</projectUrl>
+    <licenseUrl>https://github.com/dotnet/Orleans#license</licenseUrl>
+    <iconUrl>https://raw.githubusercontent.com/jthelin/jthelin.github.io/master/images/Orleans-nuget.png</iconUrl>
+    <description>Support for hosting Microsoft Orleans on Service Fabric.</description>
+    <releaseNotes>Initial release.</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>Microsoft Orleans Service Fabric</tags>
+    <dependencies>
+      <dependency id="Microsoft.Orleans.Core" version="1.1.0-beta1" />
+      <dependency id="Microsoft.Orleans.CounterControl" version="1.1.0-beta1" />
+      <dependency id="Microsoft.Orleans.OrleansHost" version="1.1.0-beta1" />
+      <dependency id="Microsoft.Orleans.OrleansRuntime" version="1.1.0-beta1" />
+      <dependency id="Microsoft.ServiceFabric" version="4.4.87-preview" />
+      <dependency id="Microsoft.ServiceFabric.Services" version="1.4.87-preview" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\Microsoft.Orleans.ServiceFabric.Silo.dll" target="lib\net45\Microsoft.Orleans.ServiceFabric.Silo.dll" />
+  </files>
+</package>

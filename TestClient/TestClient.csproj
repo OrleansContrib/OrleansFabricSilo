@@ -76,6 +76,10 @@
       <HintPath>..\packages\Microsoft.Data.Services.Client.5.6.4\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Orleans.ServiceFabric.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\Microsoft.Orleans.ServiceFabric.Client.1.1.0-beta2\lib\net45\Microsoft.Orleans.ServiceFabric.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.ServiceFabric.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=AMD64">
       <HintPath>..\packages\Microsoft.ServiceFabric.Data.1.4.87-preview\lib\net45\Microsoft.ServiceFabric.Data.dll</HintPath>
       <Private>True</Private>
@@ -118,6 +122,14 @@
     </Reference>
     <Reference Include="OrleansCodeGenerator, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Orleans.OrleansCodeGenerator.1.1.0-beta1\lib\net45\OrleansCodeGenerator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OrleansCounterControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Orleans.CounterControl.1.1.0-beta1\lib\net45\OrleansCounterControl.exe</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OrleansHost, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Orleans.OrleansHost.1.1.0-beta1\lib\net45\OrleansHost.exe</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="OrleansProviders, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -167,10 +179,6 @@
     <ProjectReference Include="..\ActorInterfaces\ActorInterfaces.csproj">
       <Project>{1948a201-19f7-4643-84a4-e4f41ce4d980}</Project>
       <Name>ActorInterfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Orleans.Fabric.Client\Orleans.Fabric.Client.csproj">
-      <Project>{28c747f4-a44d-4658-ab61-ea5e75398428}</Project>
-      <Name>Orleans.Fabric.Client</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

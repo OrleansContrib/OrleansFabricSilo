@@ -21,22 +21,26 @@ namespace CalculatorService
     /// </summary>
     internal sealed class CalculatorService : StatelessService
     {
+        static CalculatorService()
+        {
+            Trace.TraceInformation($"Ensuring Actor assembly '{typeof(CalculatorActor).Assembly}' is loaded.");
+        }
+
         /// <summary>
         /// Optional override to create listeners (like tcp, http) for this service instance.
         /// </summary>
         /// <returns>The collection of listeners.</returns>
         protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
         {
-            Trace.TraceInformation($"Ensuring Actor assembly '{typeof(CalculatorActor).Assembly}' is loaded.");
             var silo =
                 new ServiceInstanceListener(
                     initializationParameters =>
-                    new OrleansCommunicationListener(initializationParameters, this.GetClusterConfiguration(), this.ServicePartition),
-                    "orleans");
-            return new[]
-            {
-                silo,
-            };
+                    new OrleansCommunicationListener(
+                        initializationParameters,
+                        this.GetClusterConfiguration(),
+                        this.ServicePartition),
+                    "Orleans");
+            return new[] { silo, };
         }
 
         /// <summary>

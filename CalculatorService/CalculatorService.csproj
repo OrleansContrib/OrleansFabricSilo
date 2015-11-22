@@ -65,6 +65,10 @@
       <HintPath>..\packages\Microsoft.Framework.DependencyInjection.Abstractions.1.0.0-beta8\lib\net45\Microsoft.Framework.DependencyInjection.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Orleans.ServiceFabric.Silo, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\Microsoft.Orleans.ServiceFabric.Silo.1.1.0-beta2\lib\net45\Microsoft.Orleans.ServiceFabric.Silo.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.ServiceFabric.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=AMD64">
       <HintPath>..\packages\Microsoft.ServiceFabric.Data.1.4.87-preview\lib\net45\Microsoft.ServiceFabric.Data.dll</HintPath>
       <Private>True</Private>
@@ -172,10 +176,6 @@
     <ProjectReference Include="..\Actors\Actors.csproj">
       <Project>{B313F175-2A7E-41DF-B352-AEF8FB9014C2}</Project>
       <Name>Actors</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Orleans.Fabric.Silo\Orleans.Fabric.Silo.csproj">
-      <Project>{3F6112A5-6488-4754-B6AB-478B792D4908}</Project>
-      <Name>Orleans.Fabric.Silo</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

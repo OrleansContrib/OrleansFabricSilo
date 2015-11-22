@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Microsoft.Orleans.ServiceFabric.Client</id>
+    <title>Microsoft Orleans Service Fabric Client</title>
+    <version>1.1.0-beta3</version>
+    <authors>Reuben Bond</authors>
+    <owners>Microsoft,Orleans</owners>
+    <projectUrl>https://github.com/dotnet/Orleans</projectUrl>
+    <licenseUrl>https://github.com/dotnet/Orleans#license</licenseUrl>
+    <iconUrl>https://raw.githubusercontent.com/jthelin/jthelin.github.io/master/images/Orleans-nuget.png</iconUrl>
+    <description>Support for connecting Microsoft Orleans silos which are hosted on Service Fabric.</description>
+    <releaseNotes>Initial release.</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>Microsoft Orleans Service Fabric</tags>
+    <dependencies>
+      <dependency id="Microsoft.Orleans.Core" version="1.1.0-beta1" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\Microsoft.Orleans.ServiceFabric.Client.dll" target="lib\net45\Microsoft.Orleans.ServiceFabric.Client.dll" />
+  </files>
+</package>
