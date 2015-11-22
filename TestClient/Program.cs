@@ -16,7 +16,7 @@ namespace TestClient
 
         private static async Task Run(string[] args)
         {
-            var calculator = GrainFactory.GetGrain<ICalculatorActor>(Guid.Empty);
+            var calculator = Orleans.GrainClient.GrainFactory.GetGrain<ICalculatorActor>(Guid.Empty);
             double result;
             if (args.Length < 1) {
 

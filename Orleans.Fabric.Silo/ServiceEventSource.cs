@@ -2,6 +2,9 @@
 using System;
 using System.Diagnostics.Tracing;
 using System.Fabric;
+using System.Fabric.Query;
+using StatefulService = Microsoft.ServiceFabric.Services.StatefulService;
+using StatelessService = Microsoft.ServiceFabric.Services.StatelessService;
 
 namespace Orleans.Fabric.Silo
 {
