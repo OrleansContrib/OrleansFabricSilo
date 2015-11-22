@@ -2,25 +2,45 @@
 using System.Threading.Tasks;
 using GrainInterfaces;
 using Orleans;
-using Orleans.Fabric.Client;
 
 namespace TestClient
 {
+    using Microsoft.Orleans.ServiceFabric.Client;
+
+    using Orleans.Runtime;
+    using Orleans.Runtime.Configuration;
+
     class Program
     {
         static void Main(string[] args)
         {
-            OrleansFabricClient.Initialize(new Uri("fabric:/OrleansFabricSiloApplication/OrleansFabricSilo"));
+            var config = new ClientConfiguration
+            {
+                DataConnectionString = "UseDevelopmentStorage=true",
+                PropagateActivityId = true,
+                DefaultTraceLevel = Logger.Severity.Info,
+                GatewayProvider = ClientConfiguration.GatewayProviderType.AzureTable,
+                TraceToConsole = true,
+                StatisticsCollectionLevel = StatisticsLevel.Critical,
+                StatisticsLogWriteInterval = TimeSpan.FromDays(6),
+                TraceFileName = null,
+                TraceFilePattern = null,
+                WriteMessagingTraces = false,
+                ResponseTimeout = TimeSpan.FromSeconds(90),
+                StatisticsMetricsTableWriteInterval = TimeSpan.FromDays(6),
+                StatisticsPerfCountersWriteInterval = TimeSpan.FromDays(6),
+            };
+            OrleansFabricClient.Initialize(new Uri("fabric:/CalculatorApp/CalculatorService"), config);
             Run(args).Wait();
         }
 
         private static async Task Run(string[] args)
         {
-            var calculator = Orleans.GrainClient.GrainFactory.GetGrain<ICalculatorActor>(Guid.Empty);
+            var calculator = GrainClient.GrainFactory.GetGrain<ICalculatorActor>(Guid.Empty);
             double result;
             if (args.Length < 1) {
 
-                Console.WriteLine("Usage: calc.exe <operation> [operand]\n\tOperations: get, set, add, subtract, multiple, divide");
+                Console.WriteLine("Usage: TestClient.exe <operation> [operand]\n\tOperations: get, set, add, subtract, multiple, divide");
                 return;
             }
 

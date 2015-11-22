@@ -1,19 +1,18 @@
-﻿namespace Orleans.Fabric.Silo
+﻿namespace Microsoft.Orleans.ServiceFabric.Silo
 {
     using System;
     using System.Diagnostics;
     using System.Net;
     using System.Threading.Tasks;
 
-    using Orleans.Fabric.Common;
-    using Orleans.Runtime;
-    using Orleans.Runtime.Configuration;
-    using Orleans.Runtime.Host;
+    using global::Orleans.Runtime;
+    using global::Orleans.Runtime.Configuration;
+    using global::Orleans.Runtime.Host;
 
     /// <summary>
     ///     Wrapper class for an Orleans silo running in the current host process.
     /// </summary>
-    public class OrleansFabricSilo
+    internal class OrleansFabricSilo
     {
         /// <summary>
         ///     The Azure table service connection string
@@ -76,23 +75,17 @@
         /// <summary>
         ///     Gets the silo endpoint.
         /// </summary>
-        public IPEndPoint SiloEndpoint { get; private set; }
+        public IPEndPoint SiloEndpoint { get; }
 
         /// <summary>
         ///     Gets the proxy endpoint.
         /// </summary>
-        public IPEndPoint ProxyEndpoint { get; private set; }
+        public IPEndPoint ProxyEndpoint { get; }
 
         /// <summary>
         ///     Gets the task which completes when the silo stops running.
         /// </summary>
-        public Task Stopped
-        {
-            get
-            {
-                return this.stopped.Task;
-            }
-        }
+        public Task Stopped => this.stopped.Task;
 
         /// <summary>
         /// Starts the silo.
@@ -111,10 +104,7 @@
             try
             {
                 Trace.TraceInformation(
-                    "Starting silo. Name: {0}, DeploymentId: {1}, Primary Endpoint: {2}", 
-                    this.siloName, 
-                    this.deploymentId, 
-                    this.SiloEndpoint);
+                    $"Starting silo. Name: {this.siloName}, DeploymentId: {this.deploymentId}, Primary Endpoint: {this.SiloEndpoint}");
 
                 // Configure this Orleans silo instance
                 if (config == null)
@@ -139,26 +129,18 @@
                 this.host.SetProxyEndpoint(this.ProxyEndpoint);
 
                 this.host.InitializeOrleansSilo();
-                Trace.TraceInformation(
-                    "Successfully initialized Orleans silo '{0}' as a {1} node.", 
-                    this.host.Name, 
-                    this.host.Type);
-                Trace.TraceInformation("Starting Orleans silo '{0}' as a {1} node.", this.host.Name, this.host.Type);
+                Trace.TraceInformation($"Successfully initialized Orleans silo '{this.siloName}'.");
+                Trace.TraceInformation($"Starting Orleans silo '{this.siloName}'.");
 
                 var ok = this.host.StartOrleansSilo();
                 if (ok)
                 {
                     Trace.TraceInformation(
-                        "Successfully started Orleans silo '{0}' as a {1} node.", 
-                        this.host.Name, 
-                        this.host.Type);
+                        $"Successfully started Orleans silo '{this.siloName}'.");
                 }
                 else
                 {
-                    Trace.TraceInformation(
-                        "Failed to start Orleans silo '{0}' as a {1} node.", 
-                        this.host.Name, 
-                        this.host.Type);
+                    Trace.TraceInformation($"Failed to start Orleans silo '{this.siloName}'");
                 }
 
                 this.MonitorSilo();
@@ -178,7 +160,7 @@
         /// </summary>
         public void Stop()
         {
-            Trace.TraceInformation("Stopping {0}", this.GetType().FullName);
+            Trace.TraceInformation($"Stopping Orleans silo '{this.siloName}'.");
             var silo = this.host;
             if (silo != null)
             {
@@ -193,13 +175,13 @@
                 }
                 catch (Exception exception)
                 {
-                    Trace.TraceWarning("Exception stopping Orleans silo: {0}", exception);
+                    Trace.TraceWarning($"Exception stopping Orleans silo: {exception}.");
                 }
 
                 this.stopped.TrySetResult(0);
             }
 
-            Trace.TraceInformation("Orleans silo '{0}' shutdown.", silo != null ? silo.Name : "null");
+            Trace.TraceInformation($"Orleans silo '{this.siloName}' shutdown.");
         }
 
         /// <summary>
@@ -207,13 +189,9 @@
         /// </summary>
         public void Abort()
         {
-            var silo = this.host;
-            if (silo != null)
-            {
-                silo.UnInitializeOrleansSilo();
-                silo.Dispose();
-                this.host = null;
-            }
+            this.host?.UnInitializeOrleansSilo();
+            this.host?.Dispose();
+            this.host = null;
         }
 
         /// <summary>
@@ -223,29 +201,26 @@
         {
             Task.Run(
                 () =>
+                {
+                    try
                     {
-                        var silo = this.host;
-                        try
+                        if (this.host != null && this.host.IsStarted)
                         {
-                            if (silo != null && silo.IsStarted)
-                            {
-                                Trace.TraceInformation("Monitoring silo '{0}' for shutdown event.", silo.Name);
-                                this.host.WaitForOrleansSiloShutdown();
-                                this.stopped.TrySetResult(0);
-                            }
-                            else
-                            {
-                                throw new ApplicationException(
-                                    string.Format(
-                                        "Silo '{0}' failed to start correctly - aborting", 
-                                        silo != null ? silo.Name : "null"));
-                            }
+                            Trace.TraceInformation($"Monitoring Orleans silo '{this.siloName}' for shutdown event.");
+                            this.host?.WaitForOrleansSiloShutdown();
+                            this.stopped.TrySetResult(0);
                         }
-                        catch (Exception e)
+                        else
                         {
-                            this.stopped.TrySetException(e);
+                            this.stopped.TrySetException(
+                                new ApplicationException($"Orleans silo '{this.siloName}' failed to start correctly - aborting"));
                         }
-                    });
+                    }
+                    catch (Exception e)
+                    {
+                        this.stopped.TrySetException(e);
+                    }
+                });
         }
     }
 }

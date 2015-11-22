@@ -1,18 +1,13 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="OrleansFabricClient.cs" company="Dapr Labs">
-//   Copyright © Dapr Labs. All rights reserved.
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
-namespace Orleans.Fabric.Client
+﻿namespace Microsoft.Orleans.ServiceFabric.Client
 {
     using System;
     using System.Fabric;
     using System.IO;
     using System.Reflection;
 
-    using Orleans.Fabric.Common;
-    using Orleans.Runtime.Configuration;
-    using Orleans.Runtime.Host;
+    using global::Orleans;
+    using global::Orleans.Runtime.Configuration;
+    using global::Orleans.Runtime.Host;
 
     /// <summary>
     ///     Orleans client for silos hosted in Windows Fabric.
@@ -41,7 +36,7 @@ namespace Orleans.Fabric.Client
             }
 
             config.DeploymentId = deploymentId;
-            AzureClient.Initialize(config);
+            GrainClient.Initialize(config);
         }
 
         /// <summary>

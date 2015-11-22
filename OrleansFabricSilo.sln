@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24627.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orleans.Fabric.Common", "Orleans.Fabric.Common\Orleans.Fabric.Common.csproj", "{6F4824AE-FD81-4EAA-BC86-04D79226FFBE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orleans.Fabric.Client", "Orleans.Fabric.Client\Orleans.Fabric.Client.csproj", "{28C747F4-A44D-4658-AB61-EA5E75398428}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestClient", "TestClient\TestClient.csproj", "{2C8DDF61-F7B3-400C-9D13-DD9A65E5DC0F}"
@@ -15,7 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActorInterfaces", "ActorInt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orleans.Fabric.Silo", "Orleans.Fabric.Silo\Orleans.Fabric.Silo.csproj", "{3F6112A5-6488-4754-B6AB-478B792D4908}"
 EndProject
-Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "OrleansFabricSiloApplication", "OrleansFabricSiloApplication\OrleansFabricSiloApplication.sfproj", "{72696AED-817C-43D4-B291-192534014A91}"
+Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "CalculatorApp", "CalculatorApp\CalculatorApp.sfproj", "{CEA26DE8-CD4C-48CD-8243-C5541E3F9FDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorService", "CalculatorService\CalculatorService.csproj", "{30F6B4DC-18F2-4502-8BF6-C96E05718A9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,12 +25,6 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6F4824AE-FD81-4EAA-BC86-04D79226FFBE}.Debug|Any CPU.ActiveCfg = Debug|x64
-		{6F4824AE-FD81-4EAA-BC86-04D79226FFBE}.Debug|x64.ActiveCfg = Debug|x64
-		{6F4824AE-FD81-4EAA-BC86-04D79226FFBE}.Debug|x64.Build.0 = Debug|x64
-		{6F4824AE-FD81-4EAA-BC86-04D79226FFBE}.Release|Any CPU.ActiveCfg = Release|x64
-		{6F4824AE-FD81-4EAA-BC86-04D79226FFBE}.Release|x64.ActiveCfg = Release|x64
-		{6F4824AE-FD81-4EAA-BC86-04D79226FFBE}.Release|x64.Build.0 = Release|x64
 		{28C747F4-A44D-4658-AB61-EA5E75398428}.Debug|Any CPU.ActiveCfg = Debug|x64
 		{28C747F4-A44D-4658-AB61-EA5E75398428}.Debug|x64.ActiveCfg = Debug|x64
 		{28C747F4-A44D-4658-AB61-EA5E75398428}.Debug|x64.Build.0 = Debug|x64
@@ -67,14 +61,20 @@ Global
 		{3F6112A5-6488-4754-B6AB-478B792D4908}.Release|Any CPU.ActiveCfg = Release|x64
 		{3F6112A5-6488-4754-B6AB-478B792D4908}.Release|x64.ActiveCfg = Release|x64
 		{3F6112A5-6488-4754-B6AB-478B792D4908}.Release|x64.Build.0 = Release|x64
-		{72696AED-817C-43D4-B291-192534014A91}.Debug|Any CPU.ActiveCfg = Debug|x64
-		{72696AED-817C-43D4-B291-192534014A91}.Debug|x64.ActiveCfg = Debug|x64
-		{72696AED-817C-43D4-B291-192534014A91}.Debug|x64.Build.0 = Debug|x64
-		{72696AED-817C-43D4-B291-192534014A91}.Debug|x64.Deploy.0 = Debug|x64
-		{72696AED-817C-43D4-B291-192534014A91}.Release|Any CPU.ActiveCfg = Release|x64
-		{72696AED-817C-43D4-B291-192534014A91}.Release|x64.ActiveCfg = Release|x64
-		{72696AED-817C-43D4-B291-192534014A91}.Release|x64.Build.0 = Release|x64
-		{72696AED-817C-43D4-B291-192534014A91}.Release|x64.Deploy.0 = Release|x64
+		{CEA26DE8-CD4C-48CD-8243-C5541E3F9FDB}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{CEA26DE8-CD4C-48CD-8243-C5541E3F9FDB}.Debug|x64.ActiveCfg = Debug|x64
+		{CEA26DE8-CD4C-48CD-8243-C5541E3F9FDB}.Debug|x64.Build.0 = Debug|x64
+		{CEA26DE8-CD4C-48CD-8243-C5541E3F9FDB}.Debug|x64.Deploy.0 = Debug|x64
+		{CEA26DE8-CD4C-48CD-8243-C5541E3F9FDB}.Release|Any CPU.ActiveCfg = Release|x64
+		{CEA26DE8-CD4C-48CD-8243-C5541E3F9FDB}.Release|x64.ActiveCfg = Release|x64
+		{CEA26DE8-CD4C-48CD-8243-C5541E3F9FDB}.Release|x64.Build.0 = Release|x64
+		{CEA26DE8-CD4C-48CD-8243-C5541E3F9FDB}.Release|x64.Deploy.0 = Release|x64
+		{30F6B4DC-18F2-4502-8BF6-C96E05718A9E}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{30F6B4DC-18F2-4502-8BF6-C96E05718A9E}.Debug|x64.ActiveCfg = Debug|x64
+		{30F6B4DC-18F2-4502-8BF6-C96E05718A9E}.Debug|x64.Build.0 = Debug|x64
+		{30F6B4DC-18F2-4502-8BF6-C96E05718A9E}.Release|Any CPU.ActiveCfg = Release|x64
+		{30F6B4DC-18F2-4502-8BF6-C96E05718A9E}.Release|x64.ActiveCfg = Release|x64
+		{30F6B4DC-18F2-4502-8BF6-C96E05718A9E}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

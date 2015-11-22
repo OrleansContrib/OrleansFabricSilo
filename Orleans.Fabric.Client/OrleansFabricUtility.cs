@@ -1,4 +1,4 @@
-﻿namespace Orleans.Fabric.Common
+﻿namespace Microsoft.Orleans.ServiceFabric.Client
 {
     using System;
     using System.Fabric;
@@ -7,7 +7,7 @@
     /// <summary>
     ///     Utilities for working with silos hosted in Windows Fabric.
     /// </summary>
-    public static class OrleansFabricUtility
+    internal static class OrleansFabricUtility
     {
         /// <summary>
         /// Returns the deployment id for the provided service and partition.
@@ -25,7 +25,7 @@
         {
             var partitionId = partition != null ? GetPartitionKey(partition) : string.Empty;
             var serviceId = Regex.Replace(serviceName.PathAndQuery.Trim('/'), "[^a-zA-Z0-9_]", "_");
-            return string.IsNullOrWhiteSpace(partitionId) ? serviceId : string.Format("{0}@{1}", serviceId, partitionId);
+            return string.IsNullOrWhiteSpace(partitionId) ? serviceId : $"{serviceId}@{partitionId}";
         }
 
         /// <summary>
@@ -44,7 +44,7 @@
                 case ServicePartitionKind.Int64Range:
                     {
                         var intPartition = (Int64RangePartitionInformation)partition;
-                        return string.Format("{0:X}_{1:X}", intPartition.LowKey, intPartition.HighKey);
+                        return $"{intPartition.LowKey:X}_{intPartition.HighKey:X}";
                     }
 
                 case ServicePartitionKind.Named:
@@ -52,7 +52,7 @@
                 case ServicePartitionKind.Singleton:
                     return string.Empty;
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException(nameof(partition));
             }
         }
     }

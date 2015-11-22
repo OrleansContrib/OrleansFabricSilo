@@ -2,7 +2,7 @@
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Service Fabric Tools\Microsoft.VisualStudio.Azure.Fabric.ApplicationProject.props" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>72696aed-817c-43d4-b291-192534014a91</ProjectGuid>
+    <ProjectGuid>cea26de8-cd4c-48cd-8243-c5541e3f9fdb</ProjectGuid>
     <ProjectVersion>0.11</ProjectVersion>
   </PropertyGroup>
   <ItemGroup>
@@ -14,7 +14,7 @@
     <None Include="Scripts\Deploy-FabricApplication.ps1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Orleans.Fabric.Silo\Orleans.Fabric.Silo.csproj" />
+    <ProjectReference Include="..\CalculatorService\CalculatorService.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Service Fabric Tools\Microsoft.VisualStudio.Azure.Fabric.ApplicationProject.targets" />
 </Project>
