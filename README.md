@@ -2,8 +2,12 @@
 This is a simple library which allows [Orleans](github.com/dotnet/orleans/) to be hosted on Service Fabric.
 
 ## Instructions
-1. Create a stateless service to host your actors.
-2. Alter the `CreateServiceInstanceListeners` method to construct an `OrleansCommunicationListener`, like so:
+* Create a stateless service to host your actors.
+* Install the Orleans Service Fabric Silo package:
+```PS
+PM> Install-Package Microsoft.Orleans.ServiceFabric.Silo -Pre
+```
+* Alter the `CreateServiceInstanceListeners` method to construct an `OrleansCommunicationListener`, like so:
 ```C#
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
 {
@@ -14,13 +18,15 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
     return new[] { silo };
 }
 ```
-
+* Install the Orleans Service Fabric Client package:
+```PS
+PM> Install-Package Microsoft.Orleans.ServiceFabric.Silo -Pre
+```
 Then consume it in the client, initializing Orleans like so:
 ```C#
 OrleansFabricClient.Initialize(new Uri("fabric:/CalculatorApp/CalculatorService"), this.GetConfiguration());
 ```
-Replace `fabric:/CalculatorApp/CalculatorService` with the Service Fabric URI of the service hosts Orleans
-
+Replace `fabric:/CalculatorApp/CalculatorService` with the Service Fabric URI of the service created earlier.
 
 ## Sample Project Instructions
 1. Start the Azure Storage Emulator - it is currently needed for Orleans to discover other nodes.
@@ -30,4 +36,4 @@ Replace `fabric:/CalculatorApp/CalculatorService` with the Service Fabric URI of
 
 Hope this helps :) Hit me up on [@ReubenBond](https://twitter.com/reubenbond) if you have questions.
 
-You can ask Orleans-specific questions on Gitter: [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dotnet/orleans?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+Join us! Orleans is a warm, welcoming community & we're on Gitter: [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dotnet/orleans?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
