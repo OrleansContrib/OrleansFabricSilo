@@ -6,7 +6,7 @@
     <version>1.1.0-beta3</version>
     <authors>Reuben Bond</authors>
     <owners>Microsoft,Orleans</owners>
-    <projectUrl>https://github.com/dotnet/Orleans</projectUrl>
+    <projectUrl>https://github.com/ReubenBond/OrleansFabricSilo</projectUrl>
     <licenseUrl>https://github.com/dotnet/Orleans#license</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/jthelin/jthelin.github.io/master/images/Orleans-nuget.png</iconUrl>
     <description>Support for connecting Microsoft Orleans silos which are hosted on Service Fabric.</description>

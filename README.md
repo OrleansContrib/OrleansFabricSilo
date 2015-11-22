@@ -1,7 +1,28 @@
 # Orleans Service Fabric Silo
-This is a sample project demonstrating [Orleans](github.com/dotnet/orleans/) running on Service Fabric with a simple calculator test.
+This is a simple library which allows [Orleans](github.com/dotnet/orleans/) to be hosted on Service Fabric.
 
 ## Instructions
+1. Create a stateless service to host your actors.
+2. Alter the `CreateServiceInstanceListeners` method to construct an `OrleansCommunicationListener`, like so:
+```C#
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+{
+    var silo =
+        new ServiceInstanceListener(
+            parameters =>
+            new OrleansCommunicationListener(parameters, this.GetClusterConfiguration(), this.ServicePartition));
+    return new[] { silo };
+}
+```
+
+Then consume it in the client, initializing Orleans like so:
+```C#
+OrleansFabricClient.Initialize(new Uri("fabric:/CalculatorApp/CalculatorService"), this.GetConfiguration());
+```
+Replace `fabric:/CalculatorApp/CalculatorService` with the Service Fabric URI of the service hosts Orleans
+
+
+## Sample Project Instructions
 1. Start the Azure Storage Emulator - it is currently needed for Orleans to discover other nodes.
 2. Debug `CalculatorApp` from Visual Studio.
 3. Run `TestClient.exe get` from TestClient's output directory.
