@@ -20,7 +20,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 ```
 * Install the Orleans Service Fabric Client package:
 ```PS
-PM> Install-Package Microsoft.Orleans.ServiceFabric.Silo -Pre
+PM> Install-Package Microsoft.Orleans.ServiceFabric.Client -Pre
 ```
 Then consume it in the client, initializing Orleans like so:
 ```C#
