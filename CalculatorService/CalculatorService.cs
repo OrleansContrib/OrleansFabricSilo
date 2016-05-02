@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace CalculatorService
 {
     using System.Diagnostics;
-
+    using System.Fabric;
     using Actors;
 
     using Microsoft.Orleans.ServiceFabric.Silo;
@@ -26,6 +26,10 @@ namespace CalculatorService
             Trace.TraceInformation($"Ensuring Actor assembly '{typeof(CalculatorActor).Assembly}' is loaded.");
         }
 
+        protected CalculatorService(StatelessServiceContext serviceContext) : base(serviceContext)
+        {
+        }
+
         /// <summary>
         /// Optional override to create listeners (like tcp, http) for this service instance.
         /// </summary>
@@ -34,11 +38,11 @@ namespace CalculatorService
         {
             var silo =
                 new ServiceInstanceListener(
-                    initializationParameters =>
+                    config =>
                     new OrleansCommunicationListener(
-                        initializationParameters,
+                        config,
                         this.GetClusterConfiguration(),
-                        this.ServicePartition),
+                        this.Partition),
                     "Orleans");
             return new[] { silo, };
         }
@@ -76,8 +80,7 @@ namespace CalculatorService
             config.Defaults.StatisticsLogWriteInterval = TimeSpan.FromDays(6);
             config.Defaults.TurnWarningLengthThreshold = TimeSpan.FromSeconds(15);
             config.Defaults.TraceToConsole = true;
-            config.Defaults.WriteMessagingTraces = false;
-            config.Defaults.DefaultTraceLevel = Logger.Severity.Warning;
+            config.Defaults.DefaultTraceLevel = Severity.Warning;
 
             // Configure providers
             /*config.Globals.RegisterStorageProvider<AzureTableStorage>(
