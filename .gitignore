@@ -96,8 +96,7 @@ publish/
 *.Publish.xml
 
 # NuGet Packages Directory
-## TODO: If you have NuGet Package Restore enabled, uncomment the next line
-#packages/
+packages/
 
 # Windows Azure Build Output
 csx
@@ -216,28 +215,3 @@ DerivedData
 
 node_modules/
 bower_components/
-
-WebApi.xml
-Authentibles/.vs/config/applicationhost.config
-Authentibles/Site/Data/Site.xml
-Authentibles/Site/Data/Site.xml
-Authentibles.Droid/captures/Snapshot_2015.07.09_14.29.01.hprof
-Authentibles.Droid/captures/Snapshot_2015.07.16_17.23.48.hprof
-Authentibles.Droid/captures/Snapshot_2015.07.16_17.27.41.hprof
-Authentibles.Droid/captures/SystemInfo_2015.07.09_14.28.02.txt
-Authentibles.Droid/captures/SystemInfo_2015.07.09_14.28.05.txt
-Authentibles.Droid/captures/SystemInfo_2015.07.16_18.33.04.txt
-Authentibles.Droid/captures/Trace_2015.08.04_12.57.27.trace
-Authentibles.Droid/dex.sh
-Authentibles.Producer/.idea/.name
-Authentibles.Producer/.idea/compiler.xml
-Authentibles.Producer/.idea/copyright/profiles_settings.xml
-Authentibles.Producer/.idea/encodings.xml
-Authentibles.Producer/.idea/gradle.xml
-Authentibles.Producer/.idea/misc.xml
-Authentibles.Producer/.idea/modules.xml
-Authentibles.Producer/.idea/runConfigurations.xml
-Authentibles.Producer/.idea/vcs.xml
-Authentibles.Producer/gradle/wrapper/gradle-wrapper.jar
-Authentibles.Producer/gradle/wrapper/gradle-wrapper.properties
-.idea/workspace.xml
