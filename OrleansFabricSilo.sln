@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24627.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orleans.Fabric.Client", "Orleans.Fabric.Client\Orleans.Fabric.Client.csproj", "{28C747F4-A44D-4658-AB61-EA5E75398428}"
 EndProject
@@ -41,16 +41,16 @@ Global
 		{2C8DDF61-F7B3-400C-9D13-DD9A65E5DC0F}.Release|x64.Build.0 = Release|x64
 		{B313F175-2A7E-41DF-B352-AEF8FB9014C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B313F175-2A7E-41DF-B352-AEF8FB9014C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B313F175-2A7E-41DF-B352-AEF8FB9014C2}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{B313F175-2A7E-41DF-B352-AEF8FB9014C2}.Debug|x64.Build.0 = Debug|Any CPU
+		{B313F175-2A7E-41DF-B352-AEF8FB9014C2}.Debug|x64.ActiveCfg = Debug|x64
+		{B313F175-2A7E-41DF-B352-AEF8FB9014C2}.Debug|x64.Build.0 = Debug|x64
 		{B313F175-2A7E-41DF-B352-AEF8FB9014C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B313F175-2A7E-41DF-B352-AEF8FB9014C2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B313F175-2A7E-41DF-B352-AEF8FB9014C2}.Release|x64.ActiveCfg = Release|Any CPU
 		{B313F175-2A7E-41DF-B352-AEF8FB9014C2}.Release|x64.Build.0 = Release|Any CPU
 		{1948A201-19F7-4643-84A4-E4F41CE4D980}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1948A201-19F7-4643-84A4-E4F41CE4D980}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1948A201-19F7-4643-84A4-E4F41CE4D980}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{1948A201-19F7-4643-84A4-E4F41CE4D980}.Debug|x64.Build.0 = Debug|Any CPU
+		{1948A201-19F7-4643-84A4-E4F41CE4D980}.Debug|x64.ActiveCfg = Debug|x64
+		{1948A201-19F7-4643-84A4-E4F41CE4D980}.Debug|x64.Build.0 = Debug|x64
 		{1948A201-19F7-4643-84A4-E4F41CE4D980}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1948A201-19F7-4643-84A4-E4F41CE4D980}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1948A201-19F7-4643-84A4-E4F41CE4D980}.Release|x64.ActiveCfg = Release|Any CPU
