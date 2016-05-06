@@ -215,3 +215,4 @@ DerivedData
 
 node_modules/
 bower_components/
+*.nupkg
