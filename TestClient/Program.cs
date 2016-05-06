@@ -42,8 +42,7 @@ namespace TestClient
                 Console.WriteLine("Usage: TestClient.exe <operation> [operand]\n\tOperations: get, set, add, subtract, multiple, divide");
                 return;
             }
-
-            var op = args[0].ToLower();
+            
             var value = args.Length > 1 ? double.Parse(args[1]) : 0;
                         
             switch (args[0].ToLower())
@@ -67,8 +66,8 @@ namespace TestClient
                 case "set":
                     result = await calculator.Set(value);
                     break;
-                case "get":
                 default:
+                case "get":
                     result = await calculator.Get();
                     break;
             }
