@@ -3,23 +3,23 @@
   <metadata>
     <id>Microsoft.Orleans.ServiceFabric.Silo</id>
     <title>Microsoft Orleans Service Fabric Silo</title>
-    <version>1.1.0-beta2</version>
-    <authors>Reuben Bond</authors>
-    <owners>Microsoft,Orleans</owners>
-    <projectUrl>https://github.com/ReubenBond/OrleansFabricSilo</projectUrl>
+    <version>1.2.0</version>
+    <authors>Reuben Bond, OrleansContrib</authors>
+    <owners>OrleansContrib</owners>
+    <projectUrl>https://github.com/OrleansContrib/OrleansFabricSilo</projectUrl>
     <licenseUrl>https://github.com/dotnet/Orleans#license</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/jthelin/jthelin.github.io/master/images/Orleans-nuget.png</iconUrl>
     <description>Support for hosting Microsoft Orleans on Service Fabric.</description>
-    <releaseNotes>Initial release.</releaseNotes>
-    <copyright>Copyright 2015</copyright>
+    <releaseNotes>Updated to support Service Fabric RTM and Orleans 1.2.0.</releaseNotes>
+    <copyright>Copyright 2016</copyright>
     <tags>Microsoft Orleans Service Fabric</tags>
     <dependencies>
-      <dependency id="Microsoft.Orleans.Core" version="1.1.0-beta1" />
-      <dependency id="Microsoft.Orleans.CounterControl" version="1.1.0-beta1" />
-      <dependency id="Microsoft.Orleans.OrleansHost" version="1.1.0-beta1" />
-      <dependency id="Microsoft.Orleans.OrleansRuntime" version="1.1.0-beta1" />
-      <dependency id="Microsoft.ServiceFabric" version="4.4.87-preview" />
-      <dependency id="Microsoft.ServiceFabric.Services" version="1.4.87-preview" />
+      <dependency id="Microsoft.Orleans.Core" version="1.2.0" />
+      <dependency id="Microsoft.Orleans.CounterControl" version="1.2.0" />
+      <dependency id="Microsoft.Orleans.OrleansHost" version="1.2.0" />
+      <dependency id="Microsoft.Orleans.OrleansRuntime" version="1.2.0" />
+      <dependency id="Microsoft.ServiceFabric" version="5.0.135" />
+      <dependency id="Microsoft.ServiceFabric.Services" version="2.0.135" />
     </dependencies>
   </metadata>
   <files>
