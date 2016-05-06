@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.24627.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orleans.Fabric.Client", "Orleans.Fabric.Client\Orleans.Fabric.Client.csproj", "{28C747F4-A44D-4658-AB61-EA5E75398428}"
 EndProject
@@ -26,6 +26,7 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{28C747F4-A44D-4658-AB61-EA5E75398428}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{28C747F4-A44D-4658-AB61-EA5E75398428}.Debug|Any CPU.Build.0 = Debug|x64
 		{28C747F4-A44D-4658-AB61-EA5E75398428}.Debug|x64.ActiveCfg = Debug|x64
 		{28C747F4-A44D-4658-AB61-EA5E75398428}.Debug|x64.Build.0 = Debug|x64
 		{28C747F4-A44D-4658-AB61-EA5E75398428}.Release|Any CPU.ActiveCfg = Release|x64
@@ -56,12 +57,14 @@ Global
 		{1948A201-19F7-4643-84A4-E4F41CE4D980}.Release|x64.ActiveCfg = Release|Any CPU
 		{1948A201-19F7-4643-84A4-E4F41CE4D980}.Release|x64.Build.0 = Release|Any CPU
 		{3F6112A5-6488-4754-B6AB-478B792D4908}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{3F6112A5-6488-4754-B6AB-478B792D4908}.Debug|Any CPU.Build.0 = Debug|x64
 		{3F6112A5-6488-4754-B6AB-478B792D4908}.Debug|x64.ActiveCfg = Debug|x64
 		{3F6112A5-6488-4754-B6AB-478B792D4908}.Debug|x64.Build.0 = Debug|x64
 		{3F6112A5-6488-4754-B6AB-478B792D4908}.Release|Any CPU.ActiveCfg = Release|x64
 		{3F6112A5-6488-4754-B6AB-478B792D4908}.Release|x64.ActiveCfg = Release|x64
 		{3F6112A5-6488-4754-B6AB-478B792D4908}.Release|x64.Build.0 = Release|x64
 		{CEA26DE8-CD4C-48CD-8243-C5541E3F9FDB}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{CEA26DE8-CD4C-48CD-8243-C5541E3F9FDB}.Debug|Any CPU.Build.0 = Debug|x64
 		{CEA26DE8-CD4C-48CD-8243-C5541E3F9FDB}.Debug|x64.ActiveCfg = Debug|x64
 		{CEA26DE8-CD4C-48CD-8243-C5541E3F9FDB}.Debug|x64.Build.0 = Debug|x64
 		{CEA26DE8-CD4C-48CD-8243-C5541E3F9FDB}.Debug|x64.Deploy.0 = Debug|x64
@@ -70,6 +73,7 @@ Global
 		{CEA26DE8-CD4C-48CD-8243-C5541E3F9FDB}.Release|x64.Build.0 = Release|x64
 		{CEA26DE8-CD4C-48CD-8243-C5541E3F9FDB}.Release|x64.Deploy.0 = Release|x64
 		{30F6B4DC-18F2-4502-8BF6-C96E05718A9E}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{30F6B4DC-18F2-4502-8BF6-C96E05718A9E}.Debug|Any CPU.Build.0 = Debug|x64
 		{30F6B4DC-18F2-4502-8BF6-C96E05718A9E}.Debug|x64.ActiveCfg = Debug|x64
 		{30F6B4DC-18F2-4502-8BF6-C96E05718A9E}.Debug|x64.Build.0 = Debug|x64
 		{30F6B4DC-18F2-4502-8BF6-C96E05718A9E}.Release|Any CPU.ActiveCfg = Release|x64
