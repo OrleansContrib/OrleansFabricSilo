@@ -16,7 +16,7 @@ namespace Microsoft.Orleans.ServiceFabric.Silo
     {
         private readonly ClusterConfiguration configuration;
 
-        private readonly StatelessServiceContext parameters;
+        private readonly StatelessServiceInitializationParameters parameters;
 
         private readonly IServicePartition partition;
 
@@ -26,7 +26,7 @@ namespace Microsoft.Orleans.ServiceFabric.Silo
         private OrleansFabricSilo fabricSilo;
 
         public OrleansCommunicationListener(
-            StatelessServiceContext parameters,
+            StatelessServiceInitializationParameters parameters,
             ClusterConfiguration configuration,
             IServicePartition servicePartition)
         {
