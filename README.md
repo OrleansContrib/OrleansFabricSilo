@@ -1,5 +1,5 @@
 # Orleans Service Fabric Silo
-This is a simple library which allows [Orleans](github.com/dotnet/orleans/) to be hosted on Service Fabric.
+This is a simple library which allows [Orleans](https://github.com/dotnet/orleans/) to be hosted on Service Fabric.
 
 ## Instructions
 * Create a stateless service to host your actors.
