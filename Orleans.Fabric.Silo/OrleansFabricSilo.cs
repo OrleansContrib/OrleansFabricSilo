@@ -15,11 +15,6 @@
     internal class OrleansFabricSilo
     {
         /// <summary>
-        ///     The Azure table service connection string
-        /// </summary>
-        private readonly string connectionString;
-
-        /// <summary>
         ///     The deployment id.
         /// </summary>
         private readonly string deploymentId;
@@ -61,13 +56,11 @@
             Uri serviceName, 
             long instanceId, 
             IPEndPoint siloEndpoint, 
-            IPEndPoint proxyEndpoint, 
-            string connectionString)
+            IPEndPoint proxyEndpoint)
         {
             this.stopped = new TaskCompletionSource<int>();
             this.SiloEndpoint = siloEndpoint;
             this.ProxyEndpoint = proxyEndpoint;
-            this.connectionString = connectionString;
             this.deploymentId = OrleansFabricUtility.GetDeploymentId(serviceName);
             this.siloName = this.deploymentId + "_" + instanceId.ToString("X");
         }
@@ -124,7 +117,7 @@
                 this.host.SetSiloType(Silo.SiloType.Secondary);
                 this.host.SetSiloLivenessType(GlobalConfiguration.LivenessProviderType.AzureTable);
                 this.host.SetReminderServiceType(GlobalConfiguration.ReminderServiceProviderType.AzureTable);
-                this.host.SetDeploymentId(this.deploymentId, this.connectionString);
+                this.host.SetDeploymentId(this.deploymentId, config.Globals.DataConnectionString);
                 this.host.SetSiloEndpoint(this.SiloEndpoint, generation);
                 this.host.SetProxyEndpoint(this.ProxyEndpoint);
 

@@ -58,8 +58,7 @@ namespace Microsoft.Orleans.ServiceFabric.Silo
                 serviceName,
                 instanceId,
                 siloEndpoint,
-                proxyEndpoint,
-                "UseDevelopmentStorage=true");
+                proxyEndpoint);
             this.MonitorSilo();
             this.fabricSilo.Start(this.configuration);
             return siloEndpoint.ToString();
