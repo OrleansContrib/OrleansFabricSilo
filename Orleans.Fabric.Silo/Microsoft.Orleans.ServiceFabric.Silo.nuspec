@@ -3,7 +3,7 @@
   <metadata>
     <id>Microsoft.Orleans.ServiceFabric.Silo</id>
     <title>Microsoft Orleans Service Fabric Silo</title>
-    <version>1.2.0</version>
+    <version>1.2.3</version>
     <authors>Reuben Bond, OrleansContrib</authors>
     <owners>OrleansContrib</owners>
     <projectUrl>https://github.com/OrleansContrib/OrleansFabricSilo</projectUrl>
@@ -14,12 +14,12 @@
     <copyright>Copyright 2016</copyright>
     <tags>Microsoft Orleans Service Fabric</tags>
     <dependencies>
-      <dependency id="Microsoft.Orleans.Core" version="1.2.0" />
-      <dependency id="Microsoft.Orleans.CounterControl" version="1.2.0" />
-      <dependency id="Microsoft.Orleans.OrleansHost" version="1.2.0" />
-      <dependency id="Microsoft.Orleans.OrleansRuntime" version="1.2.0" />
-      <dependency id="Microsoft.ServiceFabric" version="5.0.135" />
-      <dependency id="Microsoft.ServiceFabric.Services" version="2.0.135" />
+      <dependency id="Microsoft.Orleans.Core" version="1.2.3" />
+      <dependency id="Microsoft.Orleans.OrleansHost" version="1.2.3" />
+      <dependency id="Microsoft.Orleans.OrleansRuntime" version="1.2.3" />
+      <dependency id="Microsoft.ServiceFabric" version="5.1.150" />
+      <dependency id="Microsoft.ServiceFabric.Services" version="2.1.150" />
+      <dependency id="Microsoft.ServiceFabric.Data" version="2.1.150" />
     </dependencies>
   </metadata>
   <files>

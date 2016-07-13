@@ -18,12 +18,8 @@ namespace CalculatorService
     /// </summary>
     public class CalculatorService : StatelessService
     {
-        //static CalculatorService()
-        //{
-        //    Trace.TraceInformation($"Ensuring Actor assembly '{typeof(CalculatorActor).Assembly}' is loaded.");
-        //}
-
-        public CalculatorService(StatelessServiceContext serviceContext) : base(serviceContext)
+        public CalculatorService(StatelessServiceContext serviceContext)
+            : base(serviceContext)
         {
         }
 
@@ -33,12 +29,7 @@ namespace CalculatorService
         /// <returns>The collection of listeners.</returns>
         protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
         {
-            yield return new ServiceInstanceListener(config =>
-                new OrleansCommunicationListener(
-                    config,
-                    this.GetClusterConfiguration(),
-                    this.Partition
-                ), "Orleans");
+            yield return new ServiceInstanceListener(config => new OrleansCommunicationListener(config, this.GetClusterConfiguration(), this.Partition), "Orleans");
         }
 
         /// <summary>
