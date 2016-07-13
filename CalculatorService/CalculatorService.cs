@@ -85,6 +85,7 @@ namespace CalculatorService
                 });*/
             config.Globals.ReminderServiceType = GlobalConfiguration.ReminderServiceProviderType.AzureTable;
             config.Globals.LivenessType = GlobalConfiguration.LivenessProviderType.AzureTable;
+            config.Globals.DataConnectionString = "UseDevelopmentStorage=true";
 
             //config.Globals.ExpectedClusterSize = nodeList.Count; // An overestimate is tolerable.
             config.Globals.ResponseTimeout = TimeSpan.FromSeconds(90);
