@@ -28,6 +28,12 @@ OrleansFabricClient.Initialize(new Uri("fabric:/CalculatorApp/CalculatorService"
 ```
 Replace `fabric:/CalculatorApp/CalculatorService` with the Service Fabric URI of the service created earlier.
 
+In your `ServiceManifest.xml`, add the following endpoints:
+```xml
+<Endpoint Name="OrleansSiloEndpoint"  Type="Internal" Protocol="tcp"/>
+<Endpoint Name="OrleansProxyEndpoint"  Type="Internal" Protocol="tcp"/>
+```
+
 ## Sample Project Instructions
 1. Start the Azure Storage Emulator - it is currently needed for Orleans to discover other nodes.
 2. Debug `CalculatorApp` from Visual Studio.
