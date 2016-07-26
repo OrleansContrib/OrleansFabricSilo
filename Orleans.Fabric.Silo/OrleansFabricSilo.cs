@@ -115,8 +115,8 @@
                 // Configure the silo for the current environment.
                 var generation = SiloAddress.AllocateNewGeneration();
                 this.host.SetSiloType(Silo.SiloType.Secondary);
-                this.host.SetSiloLivenessType(GlobalConfiguration.LivenessProviderType.AzureTable);
-                this.host.SetReminderServiceType(GlobalConfiguration.ReminderServiceProviderType.AzureTable);
+                this.host.SetSiloLivenessType(config.Globals.LivenessType);
+                this.host.SetReminderServiceType(config.Globals.ReminderServiceType);
                 this.host.SetDeploymentId(this.deploymentId, config.Globals.DataConnectionString);
                 this.host.SetSiloEndpoint(this.SiloEndpoint, generation);
                 this.host.SetProxyEndpoint(this.ProxyEndpoint);
