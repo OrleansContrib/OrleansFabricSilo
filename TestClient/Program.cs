@@ -28,8 +28,9 @@ namespace TestClient
                 ResponseTimeout = TimeSpan.FromSeconds(90),
                 StatisticsMetricsTableWriteInterval = TimeSpan.FromDays(6),
                 StatisticsPerfCountersWriteInterval = TimeSpan.FromDays(6),
+                DeploymentId = OrleansFabricClient.CreateDeploymentId(new Uri("fabric:/CalculatorApp/CalculatorService"))
             };
-            OrleansFabricClient.Initialize(new Uri("fabric:/CalculatorApp/CalculatorService"), config);
+            OrleansFabricClient.Initialize(config);
             Run(args).Wait();
         }
 
