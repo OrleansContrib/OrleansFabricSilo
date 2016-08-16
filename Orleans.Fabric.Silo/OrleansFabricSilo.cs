@@ -56,12 +56,13 @@
             Uri serviceName, 
             long instanceId, 
             IPEndPoint siloEndpoint, 
-            IPEndPoint proxyEndpoint)
+            IPEndPoint proxyEndpoint,
+            string deploymentId)
         {
             this.stopped = new TaskCompletionSource<int>();
             this.SiloEndpoint = siloEndpoint;
             this.ProxyEndpoint = proxyEndpoint;
-            this.deploymentId = OrleansFabricUtility.GetDeploymentId(serviceName);
+            this.deploymentId = deploymentId;
             this.siloName = this.deploymentId + "_" + instanceId.ToString("X");
         }
 
