@@ -23,9 +23,9 @@
         /// <param name="config">
         /// The configuration, or <see langword="null"/> to load from the current directory.
         /// </param>
-        public static void Initialize(Uri serviceName, ClientConfiguration config = null)
+        public static void Initialize(Uri serviceName, ClientConfiguration config = null, string deploymentId = null)
         {
-            var deploymentId = OrleansFabricUtility.GetDeploymentId(serviceName);
+            var activeDeploymentId = deploymentId ?? OrleansFabricUtility.GetDeploymentId(serviceName);
             if (config == null)
             {
                 config = new ClientConfiguration();
@@ -35,7 +35,7 @@
                 }
             }
 
-            config.DeploymentId = deploymentId;
+            config.DeploymentId = activeDeploymentId;
             GrainClient.Initialize(config);
         }
 

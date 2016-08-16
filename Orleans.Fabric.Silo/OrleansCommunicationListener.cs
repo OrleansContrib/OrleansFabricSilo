@@ -20,6 +20,8 @@ namespace Microsoft.Orleans.ServiceFabric.Silo
 
         private readonly IServicePartition partition;
 
+        private readonly string deploymentId;
+
         /// <summary>
         ///     The silo.
         /// </summary>
@@ -28,11 +30,13 @@ namespace Microsoft.Orleans.ServiceFabric.Silo
         public OrleansCommunicationListener(
             StatelessServiceContext parameters,
             ClusterConfiguration configuration,
-            IServicePartition servicePartition)
+            IServicePartition servicePartition,
+            string deploymentId = null)
         {
-            this.parameters = parameters;
+            this.parameters    = parameters;
             this.configuration = configuration;
-            this.partition = servicePartition;
+            this.partition     = servicePartition;
+            this.deploymentId  = deploymentId;
         }
 
         /// <summary>
@@ -54,11 +58,16 @@ namespace Microsoft.Orleans.ServiceFabric.Silo
 
             var siloEndpoint = new IPEndPoint(nodeAddress, activation.GetEndpoint("OrleansSiloEndpoint").Port);
             var proxyEndpoint = new IPEndPoint(nodeAddress, activation.GetEndpoint("OrleansProxyEndpoint").Port);
+
+            var activeDeploymentId = deploymentId ??
+                OrleansFabricUtility.GetDeploymentId(serviceName);
+
             this.fabricSilo = new OrleansFabricSilo(
                 serviceName,
                 instanceId,
                 siloEndpoint,
-                proxyEndpoint);
+                proxyEndpoint,
+                activeDeploymentId);
             this.MonitorSilo();
             this.fabricSilo.Start(this.configuration);
             return siloEndpoint.ToString();
