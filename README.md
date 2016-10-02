@@ -1,3 +1,6 @@
+# Deprecated: use [Microsoft.Orleans.ServiceFabric](https://www.nuget.org/packages/Microsoft.Orleans.ServiceFabric)
+Support for hosting Orleans on Serivce Fabric is now included in the [Orleans core repository](https://github.com/dotnet/orleans) and published via the [Microsoft.Orleans.ServiceFabric](https://www.nuget.org/packages/Microsoft.Orleans.ServiceFabric) package.
+
 # Orleans Service Fabric Silo
 This is a simple library which allows [Orleans](https://github.com/dotnet/orleans/) to be hosted on Service Fabric.
 
